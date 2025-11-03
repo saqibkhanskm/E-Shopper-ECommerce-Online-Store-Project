@@ -7,4 +7,8 @@
     <RootNamespace>ControllerGetWay_PL_</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Business Layer(BL)\Business Layer(BL).csproj" />
+  </ItemGroup>
+
 </Project>
