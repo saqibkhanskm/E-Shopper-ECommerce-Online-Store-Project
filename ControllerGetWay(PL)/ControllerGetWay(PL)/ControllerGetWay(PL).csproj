@@ -11,4 +11,14 @@
     <ProjectReference Include="..\Business Layer(BL)\Business Layer(BL).csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Areas\Users\Data\" />
+    <Folder Include="Areas\Users\Models\" />
+    <Folder Include="Areas\Users\Views\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="9.0.0" />
+  </ItemGroup>
+
 </Project>
