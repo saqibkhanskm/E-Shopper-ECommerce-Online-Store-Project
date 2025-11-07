@@ -9,6 +9,11 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Data Access Layer(DL)\Data Access Layer(DL).csproj" />
+    <ProjectReference Include="..\Shared\Shared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Utilities\" />
   </ItemGroup>
 
 </Project>
