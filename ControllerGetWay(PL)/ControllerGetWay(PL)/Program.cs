@@ -20,6 +20,12 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapStaticAssets();
+//Register User Area
+app.MapAreaControllerRoute(
+    name: "Users",
+    areaName: "Users",
+    pattern: "Users/{controller}/{action}/{id?}"
+);
 
 app.MapControllerRoute(
     name: "default",

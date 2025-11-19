@@ -11,7 +11,8 @@ namespace Business_Layer_BL_.DTOS.UserCredsDTO.F_InsertUserCredsDTO
     {
         public Guid CredsId { get; set; }
         public Guid UserId { get; set; }
-        public byte[]? PasswordHash { get; set; }
-        public byte[]? PasswordSalt { get; set; }
+        public string Password { get; set; } = string.Empty;
+        public string ReEnterPassword { get; set; } = string.Empty;
+       
     }
 }
