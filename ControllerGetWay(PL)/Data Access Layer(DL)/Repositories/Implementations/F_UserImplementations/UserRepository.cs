@@ -1,4 +1,5 @@
-﻿using Data_Access_Layer_DL_.Models.UserModels;
+﻿using Data_Access_Layer_DL_.ApplicationDbContext;
+using Data_Access_Layer_DL_.Models.UserModels;
 using Data_Access_Layer_DL_.Repositories.Interfaces.F_UserIntrfaces;
 using Shared.Enums.Operationstatus;
 using System;
@@ -11,9 +12,15 @@ namespace Data_Access_Layer_DL_.Repositories.Implementations.F_UserImplementatio
 {
     public class UserRepository : IUserRepository
     {
-        public Task<OperationStatusEnum> InsertUser(User user)
+        private readonly AppDbContext appDbContext;
+        public UserRepository(AppDbContext _appDbContext)
         {
-            throw new NotImplementedException();
+            appDbContext = _appDbContext;
+        }
+        public async Task<OperationStatusEnum> InsertUser(User user)
+        {
+            await appDbContext.users.AddAsync(user);
+            return OperationStatusEnum.Success;
         }
 
         public Task<OperationStatusEnum> RetrieveUser(User user)

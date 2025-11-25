@@ -4,8 +4,10 @@
     {
 
         Fail = 0,
-        Success = 1,
-        InternalServerError = 2
+        Success ,
+        InternalServerError,
+        NotFound,
+        Existed,
 
     }
 }

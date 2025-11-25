@@ -2,7 +2,6 @@
 @using Shared.Enums.Operationstatus;
 @model UserAndUserCredsDTOS;
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,37 +15,43 @@
         body {
             font-family: "Poppins", sans-serif;
             margin: 0;
-            padding: 0;
-            height: 100vh;
+            padding: 40px; 
             background: #f5f5f5;
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start; 
         }
 
         .signup-card {
-            width: 370px; /* Smaller width */
+            width: 600px; 
             background: #fff;
-            padding: 25px; /* Reduced padding */
+            padding: 25px;
             border-radius: 12px;
             box-shadow: 0 4px 25px rgba(0,0,0,0.08);
         }
 
         .signup-title {
             text-align: center;
-            margin-bottom: 18px; /* reduced */
-            font-size: 24px; /* slightly smaller */
+            margin-bottom: 18px;
+            font-size: 24px;
             font-weight: 600;
             color: #222;
         }
 
+     
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px 20px;
+        }
+
         .input-box {
-            margin-bottom: 12px; /* spacing reduced */
+            margin-bottom: 12px;
         }
 
             .input-box label {
                 display: block;
-                margin-bottom: 4px; /* small gap */
+                margin-bottom: 4px;
                 font-weight: 500;
                 color: #333;
                 font-size: 13px;
@@ -55,22 +60,16 @@
             .input-box input,
             .input-box select {
                 width: 100%;
-                padding: 10px; /* reduced height */
+                padding: 10px;
                 border-radius: 7px;
                 border: 1px solid #ddd;
                 outline: none;
                 font-size: 14px;
             }
 
-                .input-box input:focus,
-                .input-box select:focus {
-                    border-color: #ff6f61;
-                    box-shadow: 0 0 0 2px rgba(255, 111, 97, 0.25);
-                }
-
         .signup-btn {
             width: 100%;
-            padding: 11px; /* smaller */
+            padding: 12px;
             font-size: 15px;
             border-radius: 7px;
             border: none;
@@ -79,25 +78,12 @@
             font-weight: 600;
             color: #fff;
             transition: 0.3s ease;
-            margin-top: 8px;
+            margin-top: 12px;
         }
 
             .signup-btn:hover {
                 background: #ff473b;
                 transform: translateY(-2px);
-            }
-
-        .login-text {
-            text-align: center;
-            margin-top: 12px;
-            font-size: 13px;
-            color: #444;
-        }
-
-            .login-text a {
-                color: #ff6f61;
-                font-weight: 600;
-                text-decoration: none;
             }
     </style>
 </head>
@@ -106,110 +92,67 @@
     <div class="signup-card">
         <h2 class="signup-title">Create Your Account</h2>
 
-        <form>
+      
+        <form id="RegForm" onsubmit="UserReg(event)">
 
-            <div class="input-box">
-                <label>UserName</label>
-                <input type="text" name="UserName" placeholder="Enter UserName" />
-            </div>
+           
+            <div class="form-grid">
 
-            <div class="input-box">
-                <label>Email Address</label>
-                <input type="email" name="Email" placeholder="Example: user@gmail.com" />
-            </div>
+                <div class="input-box">
+                    <label>UserName</label>
+                    <input type="text" name="UserName" placeholder="Enter UserName" />
+                </div>
 
-            <div class="input-box">
-                <label>Password</label>
-                <input type="password" name="Password" placeholder="Enter password" />
-            </div>
+                <div class="input-box">
+                    <label>Email Address</label>
+                    <input type="email" name="Email" placeholder="Example: user@gmail.com" />
+                </div>
 
-            <div class="input-box">
-                <label>Confirm Password</label>
-                <input type="password" name="ReEnterPassword" placeholder="Re-enter password" />
-            </div>
+                <div class="input-box">
+                    <label>Password</label>
+                    <input type="password" name="Password" placeholder="Enter password" />
+                </div>
 
-            <div class="input-box">
-                <label>Contact Number</label>
-                <input type="text" name="Contact" placeholder="Enter contact number" />
-            </div>
+                <div class="input-box">
+                    <label>Confirm Password</label>
+                    <input type="password" name="ReEnterPassword" placeholder="Re-enter password" />
+                </div>
 
-            <div class="input-box">
-                <label>City</label>
-                <input type="text" name="City" placeholder="Enter city" />
-            </div>
+                <div class="input-box">
+                    <label>Contact Number</label>
+                    <input type="text" name="Contact" placeholder="Enter contact number" />
+                </div>
 
-            <!-- COUNTRY DROPDOWN -->
-            <div class="input-box">
-                <label>Country</label>
-                <select name="Country">
-                    <option value="">-- Select Country --</option>
-                    <option value="+92">Pakistan (+92)</option>
-                    <option value="+91">India (+91)</option>
-                    <option value="+880">Bangladesh (+880)</option>
-                    <option value="+1">United States (+1)</option>
-                    <option value="+44">United Kingdom (+44)</option>
-                    <option value="+971">UAE (+971)</option>
-                    <option value="+966">Saudi Arabia (+966)</option>
-                    <option value="+93">Afghanistan (+93)</option>
-                    <option value="+61">Australia (+61)</option>
-                    <option value="+973">Bahrain (+973)</option>
-                    <option value="+32">Belgium (+32)</option>
-                    <option value="+55">Brazil (+55)</option>
-                    <option value="+86">China (+86)</option>
-                    <option value="+20">Egypt (+20)</option>
-                    <option value="+33">France (+33)</option>
-                    <option value="+49">Germany (+49)</option>
-                    <option value="+30">Greece (+30)</option>
-                    <option value="+852">Hong Kong (+852)</option>
-                    <option value="+62">Indonesia (+62)</option>
-                    <option value="+98">Iran (+98)</option>
-                    <option value="+964">Iraq (+964)</option>
-                    <option value="+39">Italy (+39)</option>
-                    <option value="+81">Japan (+81)</option>
-                    <option value="+965">Kuwait (+965)</option>
-                    <option value="+60">Malaysia (+60)</option>
-                    <option value="+977">Nepal (+977)</option>
-                    <option value="+31">Netherlands (+31)</option>
-                    <option value="+234">Nigeria (+234)</option>
-                    <option value="+47">Norway (+47)</option>
-                    <option value="+63">Philippines (+63)</option>
-                    <option value="+48">Poland (+48)</option>
-                    <option value="+351">Portugal (+351)</option>
-                    <option value="+974">Qatar (+974)</option>
-                    <option value="+7">Russia (+7)</option>
-                    <option value="+65">Singapore (+65)</option>
-                    <option value="+27">South Africa (+27)</option>
-                    <option value="+82">South Korea (+82)</option>
-                    <option value="+34">Spain (+34)</option>
-                    <option value="+94">Sri Lanka (+94)</option>
-                    <option value="+46">Sweden (+46)</option>
-                    <option value="+41">Switzerland (+41)</option>
-                    <option value="+886">Taiwan (+886)</option>
-                    <option value="+90">Turkey (+90)</option>
-                    <option value="+380">Ukraine (+380)</option>
-                    <option value="+598">Uruguay (+598)</option>
-                    <option value="+84">Vietnam (+84)</option>
-                    <option value="+967">Yemen (+967)</option>
-                    val
-                </select>
-            </div>
+                <div class="input-box">
+                    <label>City</label>
+                    <input type="text" name="City" placeholder="Enter city" />
+                </div>
 
-            <!-- GENDER DROPDOWN -->
-            <div class="input-box">
-                <label>Gender</label>
-                <select name="Gender">
-                    <option value="">-- Select Gender --</option>
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                    <option value="other">Other</option>
-                </select>
+                <div class="input-box">
+                    <label>Country</label>
+                    <select name="Country">
+                        <option value="">-- Select Country --</option>
+                        <
+                        <option value="+92">Pakistan (+92)</option>
+                        <option value="+91">India (+91)</option>
+                        <option value="+880">Bangladesh (+880)</option>
+                      
+                    </select>
+                </div>
+
+                <div class="input-box">
+                    <label>Gender</label>
+                    <select name="Gender">
+                        <option value="">-- Select Gender --</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
             </div>
 
             <button class="signup-btn">Register Now</button>
-
-            <p class="login-text">
-                Already have an account? <a href="#">Login Here</a>
-            </p>
 
         </form>
     </div>
@@ -219,33 +162,33 @@
 
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 <script>
 
-function UserReg()
-{
-eventpreventDefault();
-var form=documentgetElementById("");
-var formdata= new FormData(form);
-$.ajax({
-    type:'POST',
-    url:"/Users/UserAccout/UserRegistration",
-    data:formdata,
-    ContentType:false,
-    processdata:false,
-    success:function(result){
-        if(result==@OperationStatusEnum.Success)
-        {
+    function UserReg(event)
+    {
+        event.preventDefault();      
 
-        }
-        else
-        {
+        var form = document.getElementById("RegForm");  
+        var formdata = new FormData(form);
 
-        }
+        $.ajax({
+            type: 'POST',
+            url: "/Users/UserAccount/UserRegistration",
+            data: formdata,
+            contentType: false,     
+            processData: false,     
+
+            success: function (result) {
+                if (result == "@OperationStatusEnum.Success") {
+                    alert("User Registered Successfully");
+                }
+                else {
+                    alert("Failed to Register");
+                }
+            }
+        });
+
     }
-})
-
-
-}
-
 
 </script>
