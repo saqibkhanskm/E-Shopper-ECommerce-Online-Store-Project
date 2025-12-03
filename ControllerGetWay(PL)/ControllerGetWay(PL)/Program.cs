@@ -1,9 +1,16 @@
+using Business_Layer_BL_.Extensions.F_ServiceRegExtensions;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+//DB Context Reg
+builder.Services.AddServices(builder.Configuration);
+
+
 var app = builder.Build();
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

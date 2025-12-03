@@ -1,10 +1,12 @@
 ﻿using Data_Access_Layer_DL_.Models.SellesModels;
 using Shared.Enums;
+using System.ComponentModel.DataAnnotations;
 
 namespace Data_Access_Layer_DL_.Models.UserModels
 {
     public class User
     {
+        [Key]
         public Guid UserId { get; set; }
         public string UserName { get; set; }=string.Empty;
         public string Email { get; set; } = string.Empty;
@@ -20,6 +22,7 @@ namespace Data_Access_Layer_DL_.Models.UserModels
     }
     public class UserCreds
     {
+        [Key]
 
         public Guid CredsId { get; set; }
         public Guid UserId { get; set; }

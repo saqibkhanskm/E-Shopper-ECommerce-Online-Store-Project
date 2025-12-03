@@ -1,10 +1,12 @@
 ﻿using Data_Access_Layer_DL_.Models.CategoryModels;
 using Data_Access_Layer_DL_.Models.SellesModels;
+using System.ComponentModel.DataAnnotations;
 
 namespace Data_Access_Layer_DL_.Models.ProductModels
 {
     public class Products
     {
+        [Key]
         public Guid ProductId { get; set; }
         public string ProductName { get; set; } = string.Empty;
         public DateTime ListedDate { get; set; }

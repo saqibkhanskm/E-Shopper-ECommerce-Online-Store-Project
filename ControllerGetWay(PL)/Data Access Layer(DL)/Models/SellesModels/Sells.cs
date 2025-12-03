@@ -1,10 +1,12 @@
 ﻿using Data_Access_Layer_DL_.Models.ProductModels;
 using Data_Access_Layer_DL_.Models.UserModels;
+using System.ComponentModel.DataAnnotations;
 
 namespace Data_Access_Layer_DL_.Models.SellesModels
 {
     public class Sells
     {
+        [Key]
         public Guid SellId { get; set; }
         public Guid ProductId { get; set; }
         public Products? Product { get; set; }
